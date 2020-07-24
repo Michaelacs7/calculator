@@ -1,8 +1,3 @@
-/* body{
-    margin: auto;
-    padding: 0;
-} */
-
 .calculator{
     text-align: center;
     margin: 0 auto;
@@ -45,10 +40,10 @@ button:hover{
     background-color: darkgray;
 }
 
-.operator, .equalSign{
+.operator, .equal-sign{
     background-color: orange;
 }
 
-.operator:hover, .equalSign:hover {
+.operator:hover, .equal-sign:hover {
     background-color: darkorange;
 }
