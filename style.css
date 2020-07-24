@@ -52,3 +52,7 @@ button:hover{
 .operator:hover, .equal-sign:hover {
     background-color: darkorange;
 }
+
+.operator:active, .equal-sign:active {
+    background-color: rgba(255, 165,0, 0.5);
+}
