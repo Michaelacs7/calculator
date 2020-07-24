@@ -1,15 +1,29 @@
+// const numbers = document.querySelectorAll(".number")
+
+// numbers.forEach( (number) =>{
+//     number.addEventListener("click", (event)=>{
+//         inputNumber(event.target.value)
+//         // updateScreen(event.target.vale)
+//         updateScreen(currentNumber)
+//         // console.log("button is pressed")
+//     })
+// })
+
 const numbers = document.querySelectorAll(".number")
 
 numbers.forEach( (number) =>{
     number.addEventListener("click", (event)=>{
         inputNumber(event.target.value)
-        updateScreen(event.target.value)
-        // console.log("button is pressed")
+        updateScreen(currentNumber)
+        // console.log("aaa")
     })
 })
+
+
 const CalculatorScreen = document.querySelector('.calculator-screen')
 
 const updateScreen = (number) =>{
+    // CalculatorScreen.value = parseFloat (number)
     CalculatorScreen.value = number
 }
 
@@ -19,7 +33,7 @@ let currentNumber = '0'
 
 const inputNumber = (number) =>{
     if(currentNumber === '0'){
-        currentNumber= number
+        currentNumber = number
     }
     else{
         currentNumber += number
@@ -27,6 +41,7 @@ const inputNumber = (number) =>{
 }
 
 const operators  = document.querySelectorAll(".operator")
+let count = 0;
 
 operators.forEach((operator) =>{
     operator.addEventListener("click", (event) =>{
@@ -45,9 +60,15 @@ const inputOperator = (operator) =>{
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', ()=>{
-    calculate()
-    updateScreen(currentNumber)
+    if(count === 0){ 
+        calculate()
+        updateScreen(currentNumber)
+        count++;
     // console.log('equal button is pressed')
+    }
+    else{
+        prevNumber = currentNumber
+    }
 })
 
 const calculate = () =>{
@@ -57,16 +78,19 @@ const calculate = () =>{
             result = parseFloat(prevNumber) + parseFloat (currentNumber)
             break
         case "-":
-            result = prevNumber - currentNumber
-            break
+            result = parseFloat(prevNumber) - parseFloat(currentNumber)
+            break;
         case "*":
-            result = prevNumber * currentNumber
-            break
+            result = parseFloat(prevNumber) * parseFloat(currentNumber)
+            break;
         case "/":
-            result = prevNumber / currentNumber
-            break
+            result = parseFloat(prevNumber) / parseFloat(currentNumber)
+            break;
+        case "%":
+            result = parseFloat(prevNumber) / 100
+            break;
         default:
-            break
+            break;
     }
     currentNumber = result
     calculationOperator = ''
