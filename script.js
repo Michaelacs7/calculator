@@ -41,7 +41,6 @@ const inputNumber = (number) =>{
 }
 
 const operators  = document.querySelectorAll(".operator")
-let count = 0;
 
 operators.forEach((operator) =>{
     operator.addEventListener("click", (event) =>{
@@ -60,15 +59,9 @@ const inputOperator = (operator) =>{
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', ()=>{
-    if(count === 0){ 
         calculate()
         updateScreen(currentNumber)
-        count++;
     // console.log('equal button is pressed')
-    }
-    else{
-        prevNumber = currentNumber
-    }
 })
 
 const calculate = () =>{
